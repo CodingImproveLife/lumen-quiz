@@ -16,3 +16,8 @@
 $router->get('/', function () use ($router) {
     return view('home');
 });
+
+//Api routes
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('categories', 'Api\CategoryController@index');
+});
