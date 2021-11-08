@@ -20,4 +20,6 @@ $router->get('/', function () use ($router) {
 //Api routes
 $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('categories', 'Api\CategoryController@index');
+    $router->get('questions', 'Api\QuestionController@index');
+    $router->get('questions/{question}', 'Api\QuestionController@show');
 });
