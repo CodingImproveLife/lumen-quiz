@@ -21,5 +21,5 @@ $router->get('/', function () use ($router) {
 $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('categories', 'Api\CategoryController@index');
     $router->get('questions', 'Api\QuestionController@index');
-    $router->get('questions/{question}', 'Api\QuestionController@show');
+    $router->get('questions/{id}', 'Api\QuestionController@show');
 });

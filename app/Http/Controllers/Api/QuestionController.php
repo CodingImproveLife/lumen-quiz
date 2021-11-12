@@ -14,9 +14,9 @@ class QuestionController extends Controller
         return QuestionResource::collection(Question::paginate(5));
     }
 
-    public function show(int $question): AnonymousResourceCollection
+    public function show(int $id): AnonymousResourceCollection
     {
-        $question = Question::where('id', $question)->get();
+        $question = Question::where('id', $id)->get();
         return QuestionResource::collection($question);
     }
 }
