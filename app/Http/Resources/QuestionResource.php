@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Answer;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class QuestionResource extends JsonResource
@@ -13,6 +14,7 @@ class QuestionResource extends JsonResource
             'title' => $this->title,
             'description' => $this->description,
             'category_id' => $this->category_id,
+            'answers' => AnswerResource::collection(Answer::where('question_id', $this->id)->get()),
         ];
     }
 }
