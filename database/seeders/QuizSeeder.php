@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Quiz;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class QuizSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,10 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            CategorySeeder::class,
-            QuizSeeder::class,
-            QuestionSeeder::class,
-        ]);
+        Quiz::factory(20)->create();
     }
 }
