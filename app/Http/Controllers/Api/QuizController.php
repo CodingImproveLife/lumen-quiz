@@ -13,4 +13,10 @@ class QuizController extends Controller
     {
         return QuizResource::collection(Quiz::paginate(5));
     }
+
+    public function show(int $id): AnonymousResourceCollection
+    {
+        $quiz = Quiz::where('id', $id)->get();
+        return QuizResource::collection($quiz);
+    }
 }
