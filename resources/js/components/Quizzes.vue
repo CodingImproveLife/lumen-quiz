@@ -4,6 +4,7 @@
             <div>{{ quiz.id }}</div>
             <div>{{ quiz.name }}</div>
             <div>{{ quiz.description }}</div>
+            <div>{{ quiz.category_id }}</div>
         </div>
     </div>
 </template>
