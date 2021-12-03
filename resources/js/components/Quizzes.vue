@@ -7,7 +7,10 @@
             <div>{{ quiz.category_id }}</div>
         </div>
 
-        <pagination :data="quizzes" @pagination-change-page="getQuizzes"></pagination>
+        <pagination :data="quizzes" @pagination-change-page="getQuizzes">
+            <span slot="prev-nav">&lt;</span>
+            <span slot="next-nav">&gt;</span>
+        </pagination>
     </div>
 </template>
 
