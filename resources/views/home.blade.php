@@ -10,7 +10,6 @@
 <body>
 <div id="app">
     <app></app>
-    <quizzes></quizzes>
 </div>
 </body>
 </html>
