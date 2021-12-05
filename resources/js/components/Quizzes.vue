@@ -1,8 +1,11 @@
 <template>
     <div>
         <div v-for="quiz in quizzes.data">
-            <div>{{ quiz.id }}</div>
-            <div>{{ quiz.name }}</div>
+            <div>
+                <router-link :to="{ name: 'quiz.show', params: { id: quiz.id } }">
+                    {{ quiz.name }}
+                </router-link>
+            </div>
             <div>{{ quiz.description }}</div>
             <div>{{ quiz.category_id }}</div>
         </div>

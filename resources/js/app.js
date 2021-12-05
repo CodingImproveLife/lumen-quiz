@@ -5,13 +5,20 @@ Vue.use(VueRouter);
 
 import App from './components/App.vue'
 import quizzes from './components/Quizzes.vue'
+import quiz from './components/Quiz.vue'
 
 const router = new VueRouter({
     mode:'history',
     routes: [
         {
             path: '/',
-            component: quizzes
+            component: quizzes,
+            name: 'quizzes'
+        },
+        {
+            path: '/quizzes/:id',
+            component: quiz,
+            name: 'quiz.show'
         }
     ]
 });

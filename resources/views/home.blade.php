@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Quiz</title>
-    <link href="css/app.css" rel="stylesheet">
-    <script src="js/app.js" defer></script>
+    <link href="{{ url('css/app.css') }}" rel="stylesheet">
+    <script src="{{ url('js/app.js') }}" defer></script>
 </head>
 <body>
 <div id="app">
