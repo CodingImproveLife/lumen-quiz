@@ -13,7 +13,6 @@ class QuestionResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'description' => $this->description,
-            'category_id' => $this->category_id,
             'answers' => AnswerResource::collection(Answer::where('question_id', $this->id)->get()),
         ];
     }

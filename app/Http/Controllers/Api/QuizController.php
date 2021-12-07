@@ -16,7 +16,7 @@ class QuizController extends Controller
 
     public function show(int $id): AnonymousResourceCollection
     {
-        $quiz = Quiz::where('id', $id)->get();
+        $quiz = Quiz::where('id', $id)->with('questions', 'questions.answers')->get();
         return QuizResource::collection($quiz);
     }
 }
