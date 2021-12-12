@@ -14,7 +14,7 @@ class QuizResource extends JsonResource
             'name' => $this->name,
             'description' => $this->description,
             'category_id' => $this->category_id,
-            'questions' => QuestionResource::collection($this->questions),
+            'questions' => $this->questions->pluck('id'),
         ];
     }
 }
