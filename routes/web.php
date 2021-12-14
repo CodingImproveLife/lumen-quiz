@@ -19,6 +19,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('quizzes', 'Api\QuizController@index');
     $router->get('quizzes/{id}', 'Api\QuizController@show');
     $router->get('question/{id}', 'Api\QuestionController@show');
+    $router->post('answer', 'Api\AnswerController@check');
 });
 
 //Any routes
