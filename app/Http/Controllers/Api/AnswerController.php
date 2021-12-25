@@ -17,8 +17,8 @@ class AnswerController extends Controller
                 'id' => 'bail|required|numeric|integer|min:1',
             ]);
             $answer = Answer::findOrFail($id);
+            return response()->json((bool)$answer[0]->is_correct);
 
-            return $answer[0]->is_correct;
         } catch (ValidationException $exception) {
             return response()->json([
                 'error' => $exception->errors(),
