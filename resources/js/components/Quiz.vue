@@ -5,7 +5,7 @@
         <div>{{ quiz.category_id }}</div>
         <div>{{ question.title }}</div>
         <div>{{ question.description }}</div>
-        <div v-for="(answer, id) in question.answers" :key="answer.id">
+        <div v-for="answer in question.answers" :key="answer.id">
             <button v-on:click="sendAnswer(answer.id)" class="btn m-2" :class="changeButtonStyle(answer.id)">
                 {{ answer.answer }}
             </button>
