@@ -6,10 +6,17 @@
         <div>{{ question.title }}</div>
         <div>{{ question.description }}</div>
         <div v-for="answer in question.answers" :key="answer.id">
-            <button v-on:click="sendAnswer(answer.id)" class="btn m-2" :class="changeButtonStyle(answer.id)">
+            <button v-on:click="selectAnswer(answer.id)"
+                    class="btn m-2"
+                    :class="changeButtonStyle(answer.id)"
+                    type="button">
                 {{ answer.answer }}
             </button>
         </div>
+        <button v-on:click="getNextQuestion()"
+                class="btn btn-primary btn-lg"
+                :class="{ disabled: !selectedAnswer }"
+                type="button">Next question</button>
     </div>
 </template>
 
@@ -42,7 +49,14 @@ export default {
                     this.answers = this.question.answers;
                 })
         },
-        sendAnswer(id) {
+        getNextQuestion() {
+            ++this.nextItem;
+            this.selectedAnswer = null;
+            console.log(this.questionIds)
+            console.log(this.nextItem)
+            this.getQuestion();
+        },
+        selectAnswer(id) {
             this.selectedAnswer = id;
             axios.post('/api/answer/', {"id": id} )
                 .then(res => {
@@ -59,9 +73,7 @@ export default {
             if (this.selectedAnswer !== null) {
                 return "btn-outline-secondary disabled"
             }
-            else {
-                return 'btn-outline-secondary';
-            }
+            return 'btn-outline-secondary';
         }
     }
 }
