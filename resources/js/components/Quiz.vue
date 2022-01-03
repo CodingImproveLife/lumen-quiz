@@ -3,6 +3,7 @@
         <h1>{{ quiz.name }}</h1>
         <div>{{ quiz.description }}</div>
         <div>{{ quiz.category_id }}</div>
+        <b-progress :value="nextItem" :max="questionIds.length" show-value class="mb-3"></b-progress>
         <div>{{ question.title }}</div>
         <div>{{ question.description }}</div>
         <div v-if="isQuestionsExist()">
