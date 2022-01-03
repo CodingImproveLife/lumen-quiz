@@ -16,7 +16,7 @@
             </div>
             <button v-on:click="getNextQuestion()"
                     class="btn btn-primary btn-lg"
-                    :class="{ disabled: !selectedAnswer }"
+                    :disabled="!selectedAnswer"
                     type="button">
                 Next question
             </button>
