@@ -6,6 +6,8 @@ Vue.use(VueRouter);
 import App from './components/App.vue'
 import quizzes from './components/Quizzes.vue'
 import quiz from './components/Quiz.vue'
+import { BootstrapVue } from 'bootstrap-vue'
+Vue.use(BootstrapVue)
 
 const router = new VueRouter({
     mode:'history',
