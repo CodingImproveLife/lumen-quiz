@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use App\Models\Answer;
+use App\Models\Category;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class QuizResource extends JsonResource
@@ -13,7 +14,7 @@ class QuizResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
-            'category_id' => $this->category_id,
+            'category' => $this->category->only('id', 'name'),
             'questions' => $this->questions->pluck('id'),
         ];
     }
