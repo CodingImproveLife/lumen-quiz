@@ -1,38 +1,36 @@
 <template>
     <div>
-        <div class="container">
-            <h1>{{ quiz.name }}</h1>
-            <div class="mb-3">{{ quiz.description }}</div>
-            <div class="row justify-content-center">
-                <div class="col-xl-6 col-lg-7 col-md-9 col-sm-11">
-                    <b-progress :value="nextItem" :max="questionIds.length" show-value class="mb-3"></b-progress>
-                    <b-card
-                        border-variant="secondary"
-                        :header=question.title
-                        header-border-variant="secondary"
-                        align="center"
-                    >
-                        <b-card-text>
-                            {{ question.description }}
-                        </b-card-text>
-                        <div v-if="isQuestionsExist()" >
-                            <div v-for="answer in question.answers" :key="answer.id">
-                                <button v-on:click="selectAnswer(answer.id)"
-                                        class="btn btn-block mb-2"
-                                        :class="changeButtonStyle(answer.id)"
-                                        type="button">
-                                    {{ answer.answer }}
-                                </button>
-                            </div>
-                            <button v-on:click="getNextQuestion()"
-                                    class="btn btn-primary btn-lg mt-3"
-                                    :disabled="!selectedAnswer"
+        <h1>{{ quiz.name }}</h1>
+        <div class="mb-3">{{ quiz.description }}</div>
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-7 col-md-9 col-sm-11">
+                <b-progress :value="nextItem" :max="questionIds.length" show-value class="mb-3"></b-progress>
+                <b-card
+                    border-variant="secondary"
+                    :header=question.title
+                    header-border-variant="secondary"
+                    align="center"
+                >
+                    <b-card-text>
+                        {{ question.description }}
+                    </b-card-text>
+                    <div v-if="isQuestionsExist()" >
+                        <div v-for="answer in question.answers" :key="answer.id">
+                            <button v-on:click="selectAnswer(answer.id)"
+                                    class="btn btn-block mb-2"
+                                    :class="changeButtonStyle(answer.id)"
                                     type="button">
-                                Next question
+                                {{ answer.answer }}
                             </button>
                         </div>
-                    </b-card>
-                </div>
+                        <button v-on:click="getNextQuestion()"
+                                class="btn btn-primary btn-lg mt-3"
+                                :disabled="!selectedAnswer"
+                                type="button">
+                            Next question
+                        </button>
+                    </div>
+                </b-card>
             </div>
         </div>
     </div>
