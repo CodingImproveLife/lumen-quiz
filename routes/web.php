@@ -20,6 +20,9 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('quizzes/{id}', 'Api\QuizController@show');
     $router->get('question/{id}', 'Api\QuestionController@show');
     $router->post('answer', 'Api\AnswerController@check');
+
+    //Authentication routes
+    $router->post('login', 'Api\AuthController@login');
 });
 
 //Any routes
